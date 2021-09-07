@@ -1,0 +1,41 @@
+repos:
+  -   repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v4.0.1
+      hooks:
+      -   id: trailing-whitespace
+      -   id: end-of-file-fixer
+      -   id: check-yaml
+      -   id: check-added-large-files
+      -   id: check-docstring-first
+      -   id: detect-private-key
+
+  -   repo: https://github.com/PyCQA/isort
+      rev: 5.9.3
+      hooks:
+      -   id: isort
+          entry: "isort --settings-path pyproject.toml"
+          files: \.py$
+
+  -   repo: https://github.com/psf/black
+      rev: 21.8b0
+      hooks:
+      -   id: black
+          entry: "black backend --config pyproject.toml"
+          language_version: python3
+
+  -   repo: https://github.com/pre-commit/mirrors-mypy
+      rev: v0.910
+      hooks:
+      -   id: mypy
+          exclude: tests/data
+          args: ["--pretty", "--show-error-codes"]
+          additional_dependencies: [
+            "pydantic",
+            "sqlalchemy-stubs"
+        ]
+
+  -   repo: https://gitlab.com/pycqa/flake8
+      rev: 3.9.2
+      hooks:
+      -   id: flake8
+          entry: "flake8 --append-config=./.flake8"

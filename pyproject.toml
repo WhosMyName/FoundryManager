@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "foundrymetamanager"
+version = "0.1.0"
+description = "dockerized Management Platform for broke GMs: create, edit, play on multiple FoundryVTT Instances"
+authors = ["Whosmyname"]
+license = "GPL v3"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+docker = "^5.0.2"
+fastapi = "^0.68.1"
+uvicorn = "^0.15.0"
+pydantic = "^1.8.2"
+SQLAlchemy = "^1.4.23"
+databases = {extras = ["postgresql"], version = "^0.5.1"}
+fastapi-users = "^6.1.3"
+fastapi_permissions = "^0.2.7"
+Jinja2 = "^3.0.1"
+
+[tool.poetry.dev-dependencies]
+black = "^21.8b0"
+mypy = "^0.910"
+flake8 = "^3.9.2"
+flake8-docstrings = "^1.6.0"
+flake8-print = "^4.0.0"
+isort = "^5.9.3"
+pytest = "^6.2.5"
+pytest-asyncio = "^0.15.1"
+pytest-dotenv = "^0.5.2"
+pre-commit = "^2.15.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
